@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="order-wrapper">
+      <div class="div-wrapper">
+        <div class="row"><h1 class="primary">Order</h1></div>
+
+        <div class="row">
+          <ul>
+            <li *ngFor="let quote of orderData" class="li-image">
+                <img src="..." alt="..." class="img-thumbnail img-resized">
+                <span class="quote-price">{{quote.price | currency: quoteCurrency}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="recipient-wrapper">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="on" class="form-wrapper">
+          <h1 class="primary">Recipient</h1>
+          <div >
+              <p class="error error-color" *ngIf="error">{{ error }}</p>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">First name</label>
+              <input type="text" class="form-control max-input" id="FirstName" placeholder="First name" formControlName="firstName">
+            </div>
+
+            <div class="errors error-color" ngxErrors="firstName" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">First name is required</div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Last name</label>
+              <input type="text" class="form-control max-input" id="LastName" placeholder="Last name" formControlName="lastName">
+            </div>
+
+            <div class="errors error-color" ngxErrors="lastName" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Last name is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="currency">Currency</label>
+              <select class="form-control" id="lstCurrencies" #selectElem (change)="selectCurrency(selectElem.value)" ng-model="currencyIsoCode" required>
+                  <option *ngFor="let currency of currencies" [value]="currency.id" [selected]="currencyIsoCode == currency.id">
+                      {{currency.name}}
+                  </option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="isocode">Country ISO code</label>
+              <select class="form-control" id="lstIsoCode" #selectSecond (change)="selectIso(selectSecond.value)" ng-model="countryIsoCode" required>
+                  <option value="Yes" [selected]="countryIsoCode == 'Yes'">
+                      Yes
+                  </option>
+                  <option value="No" [selected]="countryIsoCode == 'No'">
+                      No
+                  </option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Address Line 1</label>
+              <input type="text" class="form-control max-input" id="Address1" placeholder="Address Line 1" formControlName="address1">
+            </div>
+
+            <div class="errors error-color" ngxErrors="address1" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Address Line 1 is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Address Line 2</label>
+              <input type="text" class="form-control max-input" id="Address2" placeholder="Address Line 2" formControlName="address2">
+            </div>
+
+            <div class="errors error-color" ngxErrors="address2" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Address Line 2 is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">City</label>
+              <input type="text" class="form-control max-input" id="City" placeholder="City" formControlName="city">
+            </div>
+
+            <div class="errors error-color" ngxErrors="city" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">City is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Post code</label>
+              <input type="text" class="form-control max-input" id="Postcode" placeholder="Post code" formControlName="postcode">
+            </div>
+
+            <div class="errors error-color" ngxErrors="postcode" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Post code is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Email</label>
+              <input type="email" class="form-control max-input" id="Email" placeholder="Email" formControlName="email">
+            </div>
+
+            <div class="errors error-color" ngxErrors="email" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Email is required</div>
+              <div ngxError="email" when="dirty">Email type is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Phone</label>
+              <input type="text" class="form-control max-input" id="Phone" placeholder="Phone" formControlName="phone">
+            </div>
+
+            <div class="errors error-color" ngxErrors="phone" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Phone is required</div>
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-secondary">Next</button>
+          </div> 
+          <div>
+            <h3 class="legend">All fields are Required</h3>
+          </div>
+      </form>
+  </div>
+</div>
+

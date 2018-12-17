@@ -1,0 +1,58 @@
+$break-sm: 40em;
+$break-md: 52em;
+$break-lg: 64em;
+
+.header-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 40px;
+    background-color: #f8f9fa;
+
+    .top-section {
+        display: block;
+
+        .left-area {
+            float: left;
+            margin-left: 20px;
+    
+            .logo-config {
+                font-size: 50px; 
+                line-height: 1.1; 
+                margin-left: 0px; 
+                color: rgb(55, 53, 47);
+                display: inline;
+            }
+
+            .title-config {
+                color: #ffffff;
+                font-size: 18px;
+                display: inline;
+                font-weight: 700;
+                margin-left: 20px;
+                position: absolute;
+
+                @media (min-width: $break-md) {
+                    font-size: 30px;
+                }
+            }
+        }
+    
+        .right-area {
+            float: right;
+            margin-right: 20px;
+
+            .bg-grey {
+                background-color: #cfcfcf;
+            }
+        }
+    }
+
+    .progress-wrapper {
+        display: block;
+    }
+    
+    .pointer-cursor {
+        cursor: pointer;
+    }
+}
