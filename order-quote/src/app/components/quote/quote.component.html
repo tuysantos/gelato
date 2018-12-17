@@ -1,0 +1,17 @@
+<header-view [isLoggedIn]="isLoggedIn"></header-view>
+<step-view [step1Active]="isRecipientDone"
+  [step2Active]="isProductDone"
+  [step3Active]="hasQuote"
+  [isLogged]="isLoggedIn"
+  [step1HasData]="step1HasData"
+  [step2HasData]="step2HasData"
+  (stepEvent)="setActiveStep($event)">
+</step-view>
+<div class="container">
+  <div class="quote-wrapper">
+      <recipient-view *ngIf="activeStep == 0" (recipientEvent)="setRecipientData($event)"></recipient-view>
+      <product-view *ngIf="activeStep == 1" (productEvent)="setProductData($event)"></product-view>
+      <order-view *ngIf="activeStep == 2" [orderData]="quoteResult" [quoteCurrency]="quoteCurrency"></order-view>
+  </div>
+</div>
+

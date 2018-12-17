@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="product-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="on" class="form-wrapper" novalidate>
+        <h1 class="primary">Product</h1>
+        <div >
+            <p class="error error-color" *ngIf="error">{{ error }}</p>
+        </div>
+      <div>
+          <div class="form-group">
+            <label for="lstProducts">Product</label>
+            <select class="form-control" id="lstProducts" #selectElem (change)="selectProduct(selectElem.value)" ng-model="productUid" required>
+                <option *ngFor="let product of products" [value]="product.id" [selected]="productUid == product.id">
+                    {{product.name}}
+                </option>
+            </select>
+          </div>
+      </div>
+      
+      <div>
+          <div class="form-group">
+            <label for="Qty">Qty</label>
+            <input type="number" maxlength="4" class="form-control fix-qty" id="Qty" placeholder="Quantity" formControlName="qty" required>
+          </div>
+          <div class="errors error-color" ngxErrors="qty" #myError="ngxErrors">
+            <div ngxError="required" when="dirty">Quantity is required</div>
+            <div ngxError="number" when="dirty">Invalid quantity</div>
+          </div>
+      </div>
+
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" *ngIf="isLogged">
+  <div class="step-wrapper">
+      <div class="progress-container">
+          <ul id="progressbar">
+              <li [ngClass]="{'active':step1Active, 'hasAction':step1Active || step1HasData}" (click)="goTo(0,step1Active, step1HasData)">Recipient</li>  
+              <li [ngClass]="{'active':step2Active, 'hasAction':step2Active || step2HasData}" (click)="goTo(1,step2Active, step2HasData)">Product</li> 
+              <li [ngClass]="{'active':step3Active, 'hasAction':step3Active}" (click)="goTo(2, step3Active, false)">Quote</li>
+          </ul>
+      </div>
+      
+  </div>
+</div>

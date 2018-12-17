@@ -1,0 +1,39 @@
+<header-view [isLoggedIn]="isLoggedIn"></header-view>
+<div class="container">
+  <div class="login-wrapper">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" class="form-wrapper">
+          <h1 class="primary">Login to Quote</h1>
+          <div >
+              <p class="error error-color" *ngIf="error">{{ errorMessage }}</p>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="userName">User name</label>
+              <input type="text" class="form-control max-input" id="UserName" placeholder="User name" formControlName="userName">
+            </div>
+
+            <div class="errors error-color" ngxErrors="userName" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">User name is required</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control max-input" id="Password" placeholder="Password" formControlName="password">
+            </div>
+
+            <div class="errors error-color" ngxErrors="password" #myError="ngxErrors">
+              <div ngxError="required" when="dirty">Password is required</div>
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </div> 
+          <div>
+            <h3 class="legend">All fields are Required</h3>
+          </div>
+      </form>
+  </div>
+</div>

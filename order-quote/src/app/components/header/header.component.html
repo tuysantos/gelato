@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="header-wrapper">
+    <div class="top-section">
+        <div class="left-area">
+            <div class="logo-config">⚡</div>
+            <div class="title-config">Order Quote</div>
+        </div>
+        <div class="right-area">
+            <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" *ngIf="isLoggedIn">
+                        <a id="quote" class="nav-link" [routerLink]="['/quote']">Quote <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item" *ngIf="!isLoggedIn">
+                        <a id="login" class="nav-link" [routerLink]="['/login']">Login</a>
+                      </li>
+                      <li class="nav-item" *ngIf="isLoggedIn">
+                        <a id="logout" class="nav-link pointer-cursor" (click)="logOut()">Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+            </nav>
+
+        </div>
+    </div>
+    <div class="progress-wrapper"></div>
+  </div>
+  
+
+</div>
